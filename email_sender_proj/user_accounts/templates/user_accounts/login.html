@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div id="jumbo" class="jumbotron m-5" style="height: 550px; width: 650px; opacity: 0.9; margin-bottom: 300px;">
+<h1 class="display-3">Login Form</h1>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter Username">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+    <input class="btn btn-large btn-primary" type="submit" value="Login">
+</form>
+
+{% for msg in messages %}
+    <hr>
+    <p>{{ msg }}</p>
+{% endfor %}
+</div>
+{% endblock %}

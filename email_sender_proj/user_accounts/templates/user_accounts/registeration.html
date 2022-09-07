@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div id="jumbo" class="jumbotron m-5" style=
+        "height: auto; width: 650px; opacity: 0.9;">
+<h1 class="display-3">Registeration Form</h1>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-large btn-primary" type="submit" value="Register">
+</form>
+
+{% for msg in messages %}
+    <hr>
+    <p>{{ msg }}</p>
+{% endfor %}
+</div>
+{% endblock %}
